@@ -176,5 +176,5 @@ spec:
         - name: CHAOS_MONKEY_MEMORY
           value: "true"
         - name: VERSION
-          value: "v6"
+          value: "v2"
       terminationGracePeriodSeconds: 60

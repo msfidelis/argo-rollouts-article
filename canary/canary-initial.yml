@@ -114,14 +114,8 @@ spec:
     canary:
       steps:
       - setWeight: 20
-      - pause: {}
-      - setWeight: 40
-      - pause: {duration: 10}
-      - setWeight: 60
-      - pause: {duration: 10}
-      - setWeight: 80
-      - pause: {duration: 10}
-      - setWeight: 100      
+      - pause: {duration: 2}
+      - setWeight: 100    
   revisionHistoryLimit: 2
   selector:
     matchLabels:
@@ -176,5 +170,5 @@ spec:
         - name: CHAOS_MONKEY_MEMORY
           value: "true"
         - name: VERSION
-          value: "v2"
+          value: "v1"
       terminationGracePeriodSeconds: 60
