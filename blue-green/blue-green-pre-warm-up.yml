@@ -147,7 +147,7 @@ spec:
               - name: http-bench-analysis
                 image: rogerw/cassowary:v0.14.0
                 command: ["cassowary"]
-                args: ["run", "-u", "http://chip-preview.chip.svc.cluster.local:8080/healthcheck", "-c", "3", "-n", "1000"]
+                args: ["run", "-u", "http://chip-preview.chip.svc.cluster.local:8080/version", "-c", "6", "-n", "100000"]
               restartPolicy: Never
     count: 1
 ---
@@ -212,7 +212,7 @@ spec:
         - name: CHAOS_MONKEY_MODE
           value: "hell" 
         - name: CHAOS_MONKEY_LATENCY
-          value: "true"            
+          value: "false"            
         - name: CHAOS_MONKEY_EXCEPTION
           value: "true"   
         - name: CHAOS_MONKEY_APP_KILLER

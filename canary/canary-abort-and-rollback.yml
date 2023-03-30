@@ -54,9 +54,9 @@ metadata:
 spec:
   host: chip
   subsets:
-  - name: v1
+  - name: v2
     labels:
-      version: v1
+      version: v2
     trafficPolicy:
       connectionPool:
         tcp:
@@ -116,7 +116,7 @@ spec:
       - setWeight: 20
       - pause: {duration: 30}
       - setWeight: 40
-      - pause: {duration: 30}
+      - pause: {}
       - setWeight: 60
       - pause: {duration: 30}
       - setWeight: 80
@@ -135,7 +135,7 @@ spec:
       labels:
         app: chip
         name: chip
-        version: v1
+        version: v2
     spec:
       containers:
       - name: chip
@@ -168,13 +168,13 @@ spec:
         - name: CHAOS_MONKEY_MODE
           value: "hell" 
         - name: CHAOS_MONKEY_LATENCY
-          value: "true"            
+          value: "false"            
         - name: CHAOS_MONKEY_EXCEPTION
           value: "true"   
         - name: CHAOS_MONKEY_APP_KILLER
           value: "true"   
         - name: CHAOS_MONKEY_MEMORY
-          value: "true"
+          value: "false"
         - name: VERSION
           value: "v2"
       terminationGracePeriodSeconds: 60
