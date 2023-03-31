@@ -127,38 +127,11 @@ spec:
 kind: AnalysisTemplate
 apiVersion: argoproj.io/v1alpha1
 metadata:
-  name: chip-http-check
+  name: chip-http-warm-up
   namespace: chip
 spec:
   metrics:
-  - name: http-bench-analysis
-    failureLimit: 1
-    provider:
-      job:
-        spec:
-          backoffLimit: 1
-          template:
-            metadata:
-              labels:
-                istio-injection: disabled
-                sidecar.istio.io/inject: "false"
-            spec:
-              containers:
-              - name: http-bench-analysis
-                image: rogerw/cassowary:v0.14.0
-                command: ["cassowary"]
-                args: ["run", "-u", "http://chip-preview.chip.svc.cluster.local:8080/healthcheck", "-c", "3", "-n", "1000"]
-              restartPolicy: Never
-    count: 1
----
-kind: AnalysisTemplate
-apiVersion: argoproj.io/v1alpha1
-metadata:
-  name: chip-prometheus-http-status-query
-  namespace: chip
-spec:
-  metrics:
-  - name: http-bench-analysis
+  - name: chip-http-warm-up
     failureLimit: 1
     provider:
       job:
